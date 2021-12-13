@@ -18,7 +18,7 @@ Pogledala si bom naslednje zdravstvene determinante:
 Podatke sem dobila preko EuroStata in Statističnega urada Republike Slovenije, uvoženi v .csv, .html in .json obliki
 
 
-##Potek
+## Potek
 
 Najprej bom podatke uvozila v prej omenjenih oblikah, nato jih bom uredila. Ker ni vseh podatkov za vse članice EU, bom izbrala le države, katerih podatki so dostopni. Podobno bom naredila z leti.
 
