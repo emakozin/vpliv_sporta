@@ -10,10 +10,16 @@ Pod športno aktivnostjo bom zbrala naslednje podatke:
 Pogledala si bom naslednje zdravstvene determinante:
 - BMI (body mass index) glede na spol, starost in izobraženost
 - osebe z kronično boleznijo (vrsta bolezni, spol, starost in nivo bolezni)
-- fizične omejitve ( vid, sluh, hoja)
 - število dni odsotnosti zaradi bolezni
 - pričakovano število zdravih let
 
 
 
-Podatke sem dobila preko EuroStata in SURS-a.
+Podatke sem dobila preko EuroStata in Statističnega urada Republike Slovenije, uvoženi v .csv, .html in .json obliki
+
+
+#Potek
+
+Najprej bom podatke uvozila v prej omenjenih oblikah, nato jih bom uredila. Ker ni vseh podatkov za vse članice EU, bom izbrala le države, katerih podatki so dostopni. Podobno bom naredila z leti.
+
+Nato bom analizirala podakte in prikazala svoje ugotovitve.
