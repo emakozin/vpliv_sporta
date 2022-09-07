@@ -1,17 +1,17 @@
 
-# Analiza vpliva športne aktivnosti na zdravje
+# Analiza spremembe zdravja in aktivnosti po EVropi
 
-V projetku bom analizirala, kakšen vpliv ima športna dejavnost na zdravje prebivalcev na področju Evropske Unije in Slovenije v primerjavi z EU. Pogledala si bom povezave med aktivnostjo in fizičnim ter psihičnim zdravjem ljudi.
+V projetku bom analizirala, kako se je spremenilo zdravje prebivalcev na področju Evropske Unije in Slovenije v primerjavi z EU. Pogledala si bom povezave med aktivnostjo in  zdravjem ljudi.
 
 Pod športno aktivnostjo bom zbrala naslednje podatke:
-- čas, porabljen za fizično aktivnost (nepovezano z delom) glede na spol, starost in izobraženost
 - vrsta fizične aktivnosti (hoja, kolo...) glede na spol, starost in izobraženost
 
 Pogledala si bom naslednje zdravstvene determinante:
-- BMI (body mass index) glede na spol, starost in izobraženost
-- osebe z kronično boleznijo (vrsta bolezni, spol, starost in nivo bolezni)
-- število dni odsotnosti zaradi bolezni
-- pričakovano število zdravih let
+- BMI (body mass index)
+- pričakovana leta življenja
+- delež ljudi,ki so koristili dneve bolniške v posameznem letu
+- samoocenjevanje zdravja
+
 
 
 
