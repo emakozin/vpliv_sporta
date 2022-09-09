@@ -1,0 +1,124 @@
+---
+title: "Poročilo pri predmetu Analiza podatkov s programom R"
+author: "Ema Kozin"
+output:
+  html_document: default
+  pdf_document:
+    includes:
+      in_header: lib/styles.sty
+    latex_engine: xelatex
+runtime: shiny
+---
+
+```{r setup, echo=FALSE, results='hide', message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE)
+# Uvoz vseh potrebnih knjižnic
+source("lib/libraries.r", encoding="UTF-8")
+```
+
+```{r rstudio, results='asis'}
+# Izris povezave do RStudia na Binderju
+source("lib/rstudio.r", encoding="UTF-8")
+```
+
+
+##Analiza spremembe zdravja in aktivnosti v Evropi
+V projektu sem si ogledala spremembe v zdravju in fizični aktivnosti med letoma 2014 in 2019. Za kazatelje zdravja sem si izbrala indeks telesne mase (BMI), delež prebivalstva, ki je koristil dni bolniške, samoocena zdravja prebivalcev in njihova pričakovana leta. Podatke sem dobila na Eurostatu in SURS-u.
+
+
+## Obdelava, uvoz in čiščenje podatkov
+
+```{r uvoz}
+source("uvoz/uvoz.r", encoding="UTF-8")
+```
+
+V tej fazi obdelave podatkov, sem uvozila tabele v EXCEL in CSV obliki. 
+
+
+1. Aktivnost (2014 in 2019)
+  - država
+  - delež prebivalcev, ki hodi
+  - -||-, ki kolesari
+  - -||-, ki se ukvarja z aerobični športi
+  - -||-, ki se ukvarja s treningi za moč
+  
+  
+2. BMI (2014 in 2019)
+  - država
+  - delež prebivalstva z normalnim indeksom telesne teže
+  
+3. Bolniška  (2014 in 2019)
+  - država
+  - delež prebivalstva, ki je koristil dni bolniške
+  
+4. Ocena zdravja (2014 in 2019)
+  - država
+  - ocena zelo dobro in dobro
+  - ocena normalno
+  - ocena slabo in zelo slabo
+  
+5. pričakovana leta (2014 in 2019)
+  - država
+  - pričakovana leta življenja
+  
+  
+## Analiza in vizualizacija podatkov
+ 
+```{r vizualizacija, results='hide'}
+source("vizualizacija/vizualizacija.r", encoding="UTF-8")
+```
+
+V prvem grafu sem prikazala spremembo v fizični aktivnosti posameznih državah
+```{r graf1, echo=FALSE, fig.align='center', warning=FALSE}
+plot(graf1)
+```
+
+V drugem pa, koliko se je spremenil delež prebivalstva z normalnim BMI
+```{r graf2, echo=FALSE, fig.align='center', message=FALSE, warning=FALSE}
+graf2
+```
+
+Na tretjem grafu je prikazano, koliko več oziroma manj ljudi je koristilo bolniško.
+```{r graf3, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
+graf3
+```
+
+Četrti graf prikazuje razliko v deležu ljudi, ki so svoje zdravje ocenili z slabo ali zelo slabo.
+```{r graf4, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
+graf4
+```
+
+
+Peti graf prikazuje razliko v deležu ljudi, ki so svoje zdravje ocenili z oceno normalno/pošteno.
+```{r graf5, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
+graf5
+```
+
+Šesti graf prikazuje razliko v deležu ljudi, ki so svoje zdravje ocenili z dobro ali zelo dobro.
+```{r graf6, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
+graf6
+```
+
+Sedmi graf pa kaže spremembe v pričakovanih letih življenja
+```{r graf7, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
+graf7
+```
+
+
+## Napredna analiza podatkov
+
+Z uporabo shinny sem želela vse pokazati na hitrejši in preprostejši način. Torej na eni strani lahko izberemo država in zanjo pogledamo, kao se je vsak pokazatelj zdravja spremenil. Obratno pa lahko izberemo posamezen pokazatelj in vidimo, kako se je spremnil po vseh državah.
+
+```{r shiny}
+shinyAppDir("shiny", options=list(width="100%", height=600))
+```
+
+
+
+## Zaključek
+
+
+Ugotovila sem, da je v nekaterih državah vidno (Estonija, Litva, Latvija), da se  z močno povišano fizično aktivnostjo izboljša tudi BMI in se tudi pričakovana leta bolj povečajo, kot se pri drugih državah. Med drugim sem opazila pa da ni neke odvisnosti med aktivnsotjo in delež prebivalstva, ki koristi dneve bolniške. 
+
+Prav pri zgornjih treh državah se lepo vidi, da se je zdravje (razen pri kazalniku bolniška) izboljšalo, ko so bili bolj fizično aktivni.
+Pri manj aktivnih državah npr. Malta, Ciper pa se vidi, da se sploh pričakovana leta ne pvišajo toliko kot se pri bolj fizično aktivnih.

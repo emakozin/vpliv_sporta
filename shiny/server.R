@@ -22,7 +22,8 @@ shinyServer(function(input, output) {
     colnames(df) <- c("Pokazatelj","Države","Vrednosti")
     df$Vrednosti <- round(as.numeric(df$Vrednosti),2)
     
-    graf.pokazatelj <- ggplot(df,aes(Države,pokazatelj,fill=Vrednosti)) + geom_bar(aes(x=Države),stat="identity") +geom_text(aes(label=Vrednosti),colour="white",vjust=10)
+    graf.pokazatelj <- ggplot(df,aes(Države,pokazatelj,fill=Vrednosti)) + geom_bar(aes(x=Države),stat="identity") +geom_text(aes(label=Vrednosti),colour="white",vjust=10) + theme(axis.text = element_text(angle = 90))
+
     print(graf.pokazatelj)
     
    
