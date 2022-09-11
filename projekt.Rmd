@@ -21,7 +21,8 @@ source("lib/libraries.r", encoding="UTF-8")
 source("lib/rstudio.r", encoding="UTF-8")
 ```
 
-##Analiza spremembe zdravja in aktivnosti v Evropi V projektu sem si ogledala spremembe v zdravju in fizični aktivnosti med letoma 2014 in 2019. Za kazatelje zdravja sem si izbrala indeks telesne mase (BMI), delež prebivalstva, ki je koristil dni bolniške, samoocena zdravja prebivalcev in njihova pričakovana leta. Podatke sem dobila na Eurostatu in SURS-u.
+## Analiza spremembe zdravja in aktivnosti v Evropi 
+V projektu sem si ogledala spremembe v zdravju in fizični aktivnosti med letoma 2014 in 2019. Za kazatelje zdravja sem si izbrala indeks telesne mase (BMI), delež prebivalstva, ki je koristil dni bolniške, samoocena zdravja prebivalcev in njihova pričakovana leta. Podatke sem dobila na Eurostatu in SURS-u.
 
 ## Obdelava, uvoz in čiščenje podatkov
 
@@ -65,46 +66,57 @@ V tej fazi obdelave podatkov, sem uvozila tabele v EXCEL in CSV obliki.
 source("vizualizacija/vizualizacija.r", encoding="UTF-8")
 ```
 
-V prvem grafu sem prikazala spremembo v deležu kolesarjev po posameznih državah (razlika med vrednostjo leta 2019 in leta 2014)
+V prvem grafu sem prikazala spremembo v deležu prebivalcev, ki kolesari po posameznih državah (razlika med vrednostjo leta 2019 in leta 2014)
 
 ```{r graf1, echo=FALSE, fig.align='center', warning=FALSE}
 plot(graf1)
 ```
 
-V drugem pa, koliko se je spremenil delež prebivalstva, ki se ukvarja z aerobičnimi športi
+V drugem pa, koliko se je spremenil delež prebivalstva, ki se ukvarja z aerobičnimi športi (spet primerjava med 2014 in 2019)
 
 ```{r graf2, echo=FALSE, fig.align='center', message=FALSE, warning=FALSE}
 plot(graf2)
 ```
 
-Na tretjem grafu je prikazano, koliko več oziroma manj ljudi je koristilo bolniško.
+Na tretjem grafu je prikazano, koliko več oziroma manj ljudi je koristilo dneve bolniške.
 
 ```{r graf3, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
 graf3
 ```
 
-Četrti graf prikazuje razliko v deležu ljudi, ki so svoje zdravje ocenili z slabo ali zelo slabo.
+Četrti graf prikazuje razliko v deležu ljudi, ki so svoje zdravje ocenili z slabo ali zelo slabo (vsakoletna ocena od 2014 do 2019).
 
 ```{r graf4, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
 graf4
 ```
 
-Peti graf prikazuje razliko v deležu ljudi, ki so svoje zdravje ocenili z oceno normalno/pošteno.
+Peti graf prikazuje razliko v deležu ljudi, ki so svoje zdravje ocenili z oceno normalno/pošteno (vsakoletna ocena od 2014 do 2019).
 
 ```{r graf5, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
 graf5
 ```
 
-Šesti graf prikazuje razliko v deležu ljudi, ki so svoje zdravje ocenili z dobro ali zelo dobro.
+Šesti graf prikazuje razliko v deležu ljudi, ki so svoje zdravje ocenili z dobro ali zelo dobro (vsakoletna ocena od 2014 do 2019).
 
 ```{r graf6, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
 graf6
 ```
 
-Sedmi graf pa kaže spremembe v pričakovanih letih življenja
+Za lažjo predstavo sem naredila tudi zemljevid, ki kaže spremembo v oceni dobro po Evropi
+
+```{r zemljevid1, fig.align='center'}
+zemljevid1
+```
+
+Sedmi graf pa kaže spremembe v pričakovanih letih življenja (razlika med vrednostjo leta 2014 in 2019)
 
 ```{r graf7, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center'}
 graf7
+```
+
+Tudi tu sem naredila zamljevi, da vidimo, v kateri Državi se najbolj in najmanj veča število pričakovanih let
+```{r zemljevid2, fig.align='center'}
+zemljevid2
 ```
 
 Osmi graf pa koliko se je spremenil delež normalnega BMI med letom 2014 in 2019
@@ -123,6 +135,5 @@ shinyAppDir("shiny", options=list(width="150%", height=600))
 
 ## Zaključek
 
-Ugotovila sem, da je v nekaterih državah vidno (Estonija, Litva, Latvija), da se z močno povišano fizično aktivnostjo izboljša tudi BMI in se tudi pričakovana leta bolj povečajo, kot se pri drugih državah. Med drugim sem opazila pa da ni neke odvisnosti med aktivnsotjo in delež prebivalstva, ki koristi dneve bolniške.
-
-Prav pri zgornjih treh državah se lepo vidi, da se je zdravje (razen pri kazalniku bolniška) izboljšalo, ko so bili bolj fizično aktivni. Pri manj aktivnih državah npr. Malta, Ciper pa se vidi, da se sploh pričakovana leta ne pvišajo toliko kot se pri bolj fizično aktivnih.
+Ugotovila sem, da je v nekaterih državah vidno (Estonija, Latvija,), da se z močno povišano fizično aktivnostjo izboljša tudi BMI in se tudi pričakovana leta bolj povečajo, kot se pri drugih državah. Med drugim sem opazila pa da ni neke odvisnosti med aktivnsotjo in delež prebivalstva, ki koristi dneve bolniške. Pri državah kot so Madžarska in Bolgarija ter Grčija, pa se vidi, da je posledica večjega deleža fizično aktivnega prebivalstva tudi zmanjšanje samoocene slabo in povečanje ocene dobro.
+Pri manj aktivnih državah npr. Malta, Ciper pa se vidi, da se sploh pričakovana leta ne pvišajo toliko kot se pri bolj fizično aktivnih. Pri Norveški pa sicer nimam podatka o spremembi aerobične vadbe, a se je močno zmanjšal delež kolesarjev, hkrati pa so si Norvežani veliko slabše ocenili svoje zdravje kot prej.

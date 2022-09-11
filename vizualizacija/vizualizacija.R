@@ -3,6 +3,52 @@
 library(tmap)
 library(digest)
 library(ggplot2)
+library(tidyverse)
+library(sf)
+library(rnaturalearth)
+library(rnaturalearthdata)
+
+
+# Uvoz zemljevida:
+world_map <- ne_countries(scale = 50, returnclass = 'sf')
+european_union <- c("Austria","Belgium","Bulgaria","Croatia","Cyprus",
+                    "Czech Rep.","Denmark","Estonia","Finland","France",
+                    "Germany","Greece","Hungary","Ireland","Italy","Latvia",
+                    "Lithuania","Luxembourg","Malta","Netherlands","Poland",
+                    "Portugal","Romania","Slovakia","Slovenia","Spain",
+                    "Sweden", "Norway")
+european_union[6] <- "Czechia"
+european_union_map <- world_map %>% 
+  filter(name %in% european_union)
+bbox_europe <- st_bbox(c(xmin = -10, ymin = 20, xmax = 50, ymax = 80), crs = st_crs(european_union_map))
+european_union_map_cropped <- st_crop(european_union_map, bbox_europe)
+
+#1. zemljevid: sprememba ocene dobro
+drzave <- intersect(skupaj$Država,european_union)
+df <- tibble(country = drzave, some_value = skupaj$OCENA_DOBRO)
+
+map <- european_union_map_cropped %>% 
+  left_join(df, by = c("name" = "country"))
+
+zemljevid1 <- ggplot(data = map) +
+  geom_sf(mapping = aes(fill = some_value)) +
+  scale_fill_gradient2(name = "Sprememba ", low = "#FF0000FF", high = "#FFFF00FF", na.value = "grey50") +
+  labs(title = "Sprememba deleža samocene 'dobro'") +
+  theme(plot.title.position = "plot",axis.text = element_blank())
+
+
+#2. zemljevid: narast pričakovanih let življenja
+df2 <- tibble(country = drzave, some_value = skupaj$PRIČAKOVANA_LETA)
+
+map2 <- european_union_map_cropped %>% 
+  left_join(df, by = c("name" = "country"))
+
+zemljevid2 <- ggplot(data = map2) +
+  geom_sf(mapping = aes(fill = some_value)) +
+  scale_fill_gradient2(name = "Sprememba", na.value = "grey50") +
+  labs(title = "Sprememba v pričakovanih letih") +
+  theme(plot.title.position = "plot",axis.text = element_blank())
+
 
 # 1. graf: sprememba v fizični aktivnosti po državah (kolesarjenje)
 
