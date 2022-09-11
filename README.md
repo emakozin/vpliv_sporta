@@ -13,9 +13,7 @@ Pogledala si bom naslednje zdravstvene determinante:
 - samoocenjevanje zdravja
 
 
-
-
-Podatke sem dobila preko EuroStata in Statističnega urada Republike Slovenije, uvoženi v .csv, .html in .json obliki
+Podatke sem dobila preko EuroStata in Statističnega urada Republike Slovenije, uvoženi v .csv in .html obliki
 
 
 ## Potek
