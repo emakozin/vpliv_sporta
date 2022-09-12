@@ -18,6 +18,8 @@ library(mosaic)
 library(ggmap)
 library(mapproj)
 library(munsell)
+library(scales)
+library(reshape2)
 
 
 options(gsubfn.engine="R")

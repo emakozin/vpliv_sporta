@@ -127,6 +127,16 @@ graf8
 
 ## Napredna analiza podatkov
 
+Za napredno analizo sem izračunala povprečja razlik v vrednosti pričakovanih let in izračunala odstope od povprečja po posameznih državah. Za tem sem podobno naredila še pri fizični aktivnosti (tj. kolesarjenje in aerobični športi). Vse sem zdražila skupaj v tabelo in naredila graf, da se vidi, koliko so ti trije kazalniki povezani.
+
+```{r analiza}
+source("analiza/analiza.r", encoding="UTF-8")
+```
+```{r graf9, echo=FALSE, message=FALSE, warning=FALSE, fig.align='center', out.width="150%"}
+graf9
+```
+
+
 Z uporabo shinny sem želela vse pokazati na hitrejši in preprostejši način. Torej na eni strani lahko izberemo država in zanjo pogledamo, kao se je vsak pokazatelj zdravja spremenil. Obratno pa lahko izberemo posamezen pokazatelj in vidimo, kako se je spremnil po vseh državah.
 
 ```{r shiny}
@@ -136,4 +146,4 @@ shinyAppDir("shiny", options=list(width="150%", height=600))
 ## Zaključek
 
 Ugotovila sem, da je v nekaterih državah vidno (Estonija, Latvija,), da se z močno povišano fizično aktivnostjo izboljša tudi BMI in se tudi pričakovana leta bolj povečajo, kot se pri drugih državah. Med drugim sem opazila pa da ni neke odvisnosti med aktivnsotjo in delež prebivalstva, ki koristi dneve bolniške. Pri državah kot so Madžarska in Bolgarija ter Grčija, pa se vidi, da je posledica večjega deleža fizično aktivnega prebivalstva tudi zmanjšanje samoocene slabo in povečanje ocene dobro.
-Pri manj aktivnih državah npr. Malta, Ciper pa se vidi, da se sploh pričakovana leta ne pvišajo toliko kot se pri bolj fizično aktivnih. Pri Norveški pa sicer nimam podatka o spremembi aerobične vadbe, a se je močno zmanjšal delež kolesarjev, hkrati pa so si Norvežani veliko slabše ocenili svoje zdravje kot prej.
+Pri manj aktivnih državah npr. Malta, Ciper pa se vidi, da se sploh pričakovana leta ne pvišajo toliko kot se pri bolj fizično aktivnih. 
