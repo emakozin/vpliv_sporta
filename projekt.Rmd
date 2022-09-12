@@ -127,7 +127,8 @@ graf8
 
 ## Napredna analiza podatkov
 
-Za napredno analizo sem izračunala povprečja razlik v vrednosti pričakovanih let in izračunala odstope od povprečja po posameznih državah. Za tem sem podobno naredila še pri fizični aktivnosti (tj. kolesarjenje in aerobični športi) in oceni dobro ter slabo. Vse sem združila skupaj v tabelo in naredila graf, da se vidi, koliko so ti trije kazalniki povezani.
+Za napredno analizo sem izračunala povprečja ocene dobro v letih od 2014 do 2019 po posamezni državi in naredila graf, ki kaže, odstopanja od teh povprečij za vsako leto.
+
 
 ```{r analiza}
 source("analiza/analiza.r", encoding="UTF-8")
@@ -145,5 +146,5 @@ shinyAppDir("shiny", options=list(width="150%", height=600))
 
 ## Zaključek
 
-Ugotovila sem, da je v nekaterih državah vidno (Estonija, Latvija,), da se z močno povišano fizično aktivnostjo izboljša tudi BMI in se tudi pričakovana leta bolj povečajo, kot se pri drugih državah. Med drugim sem opazila pa da ni neke odvisnosti med aktivnsotjo in delež prebivalstva, ki koristi dneve bolniške. Pri državah kot so Madžarska in Bolgarija ter Grčija, pa se vidi, da je posledica večjega deleža fizično aktivnega prebivalstva tudi zmanjšanje samoocene slabo in povečanje ocene dobro. Pri velikem številu držav (npr. Hrvaška, Češka, Madžarska, Francija) se vidi, da ima trening aerobične vadbe večji vpliv kot kolesarjenje na večji delež ocene dobro (oz. slabo)
+Ugotovila sem, da je v nekaterih državah vidno (Estonija, Latvija), da se z močno povišano fizično aktivnostjo izboljša tudi BMI in se tudi pričakovana leta bolj povečajo, kot se pri drugih državah. Med drugim sem opazila pa da ni neke odvisnosti med aktivnsotjo in delež prebivalstva, ki koristi dneve bolniške. Pri državah kot so Madžarska in Bolgarija ter Grčija, pa se vidi, da je posledica večjega deleža fizično aktivnega prebivalstva tudi zmanjšanje samoocene slabo in povečanje ocene dobro. Pri velikem številu držav (npr. Hrvaška, Češka, Madžarska, Francija) se vidi, da ima trening aerobične vadbe večji vpliv kot kolesarjenje na večji delež ocene "dobro" (oz. "slabo"). Zanimivo je tudi, da čeprav sta Estonija in Grčija aktivni državi, se je njun delež ocene dobro zmanjšal in precej odstopa od njihovega povprečja v letih opazovanja. Obratno pa je pri Norveški, kjer se je ta delež v letu 2019 zelo izboljšal. Med drugim lahko tudi vidimo, da pri Italija ta delež zelo niha in bi bilo zanimovio pogledati še kakšne dejavnike, ki bi lahko vplivali na to oceno.
 Pri manj aktivnih državah npr. Malta, Ciper pa se vidi, da se sploh pričakovana leta ne povišajo toliko kot se pri bolj fizično aktivnih. 
