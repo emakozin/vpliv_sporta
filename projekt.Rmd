@@ -114,7 +114,7 @@ Sedmi graf pa kaže spremembe v pričakovanih letih življenja (razlika med vred
 graf7
 ```
 
-Tudi tu sem naredila zamljevi, da vidimo, v kateri Državi se najbolj in najmanj veča število pričakovanih let
+Tudi tu sem naredila zemljevid, da vidimo, v kateri Državi se najbolj in najmanj veča število pričakovanih let
 ```{r zemljevid2, fig.align='center'}
 zemljevid2
 ```
@@ -127,7 +127,7 @@ graf8
 
 ## Napredna analiza podatkov
 
-Za napredno analizo sem izračunala povprečja razlik v vrednosti pričakovanih let in izračunala odstope od povprečja po posameznih državah. Za tem sem podobno naredila še pri fizični aktivnosti (tj. kolesarjenje in aerobični športi). Vse sem zdražila skupaj v tabelo in naredila graf, da se vidi, koliko so ti trije kazalniki povezani.
+Za napredno analizo sem izračunala povprečja razlik v vrednosti pričakovanih let in izračunala odstope od povprečja po posameznih državah. Za tem sem podobno naredila še pri fizični aktivnosti (tj. kolesarjenje in aerobični športi) in oceni dobro ter slabo. Vse sem združila skupaj v tabelo in naredila graf, da se vidi, koliko so ti trije kazalniki povezani.
 
 ```{r analiza}
 source("analiza/analiza.r", encoding="UTF-8")
@@ -145,5 +145,5 @@ shinyAppDir("shiny", options=list(width="150%", height=600))
 
 ## Zaključek
 
-Ugotovila sem, da je v nekaterih državah vidno (Estonija, Latvija,), da se z močno povišano fizično aktivnostjo izboljša tudi BMI in se tudi pričakovana leta bolj povečajo, kot se pri drugih državah. Med drugim sem opazila pa da ni neke odvisnosti med aktivnsotjo in delež prebivalstva, ki koristi dneve bolniške. Pri državah kot so Madžarska in Bolgarija ter Grčija, pa se vidi, da je posledica večjega deleža fizično aktivnega prebivalstva tudi zmanjšanje samoocene slabo in povečanje ocene dobro.
-Pri manj aktivnih državah npr. Malta, Ciper pa se vidi, da se sploh pričakovana leta ne pvišajo toliko kot se pri bolj fizično aktivnih. 
+Ugotovila sem, da je v nekaterih državah vidno (Estonija, Latvija,), da se z močno povišano fizično aktivnostjo izboljša tudi BMI in se tudi pričakovana leta bolj povečajo, kot se pri drugih državah. Med drugim sem opazila pa da ni neke odvisnosti med aktivnsotjo in delež prebivalstva, ki koristi dneve bolniške. Pri državah kot so Madžarska in Bolgarija ter Grčija, pa se vidi, da je posledica večjega deleža fizično aktivnega prebivalstva tudi zmanjšanje samoocene slabo in povečanje ocene dobro. Pri velikem številu držav (npr. Hrvaška, Češka, Madžarska, Francija) se vidi, da ima trening aerobične vadbe večji vpliv kot kolesarjenje na večji delež ocene dobro (oz. slabo)
+Pri manj aktivnih državah npr. Malta, Ciper pa se vidi, da se sploh pričakovana leta ne povišajo toliko kot se pri bolj fizično aktivnih. 
