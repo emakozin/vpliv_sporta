@@ -7,6 +7,8 @@ library(tidyverse)
 library(sf)
 library(rnaturalearth)
 library(rnaturalearthdata)
+library(reshape2)
+library(scales)
 
 
 # Uvoz zemljevida:
@@ -83,8 +85,13 @@ df7 <- skupaj[,c("Država","PRIČAKOVANA_LETA")]
 graf7 <- ggplot(df7, aes(Država,PRIČAKOVANA_LETA)) + geom_bar(stat = "identity") + ggtitle("Sprememba pričakovanih let") + theme(axis.text = element_text(angle = 90))
 
 
-# 8. graf: sprememba v deležu normalnega indeksa telesne mase po državah
-df8 <- skupaj[,c("Država","BMI")]
-graf8 <- ggplot(df8, aes(Država,BMI)) + geom_bar(stat = "identity") + ggtitle("Sprememba BMI") + theme(axis.text = element_text(angle = 90))
+# 8. graf: odstopanja od povprečij pri pričakovanih letih, kolesarjenju in aerobični vadbi
+odstopanja <- data.frame(Odstop.pric.leta = round(skupaj$PRIČAKOVANA_LETA - as.numeric(mean(skupaj$PRIČAKOVANA_LETA)),2),
+                         Odstop.kolo = round(skupaj$KOLO - as.numeric(mean(skupaj$KOLO)),2),
+                         Odstop.aero.sporti = round(skupaj$AEROBIČNI_ŠPORTI - as.numeric(mean(skupaj$AEROBIČNI_ŠPORTI)),2),
+                         Država = skupaj$Država)
 
+mdfr <- melt(odstopanja, id.vars = "Država") %>% filter(Država != "Finland")
+
+graf8 <- ggplot(mdfr, aes(Država, value, fill = variable)) + geom_bar(position = "dodge", stat = "identity") + labs(title = "Odstopanja od povprečja razlik v pričakovanih letih, deležu kolesarjev in prebivalstva v aerobičnih športih") + ylab("Odstop od povprečja") + scale_fill_discrete(labels=c("Odstop pričakovanih let", "Odstop kolesarjenja", "Odstop pri aerobičnih športih")) + theme(legend.title = element_blank(),axis.text = element_text(angle = 90))
 
